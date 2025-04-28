@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD EMPRESA</title>
+</head>
+<body>
+    <h1>CRUD EMPRESA</h1>
+    <p>Selecciona una tabla:
+    <select id="tablaSelect">
+        <option value="empleados">Empleados</option>
+        <option value="puestos">Puestos</option>
+    </select></p>
+
+    <!-- Formulario Empleados -->
+    <div id="empleadosSection">
+      <h2>REGISTRO DE EMPLEADOS</h2>
+      <form id="empleadosForm">
+        <input type="hidden" id="ID_Empleado">
+        <label> Clave Empleado:<input type="number" id="Clave_Empleado" required></label><br>
+        <label> Nombre:<input type="text" id="Nombre" required> </label><br>
+        <label> A_Paterno:<input type="text" id="A_paterno" required> </label><br>
+        <label> A_Materno:<input type="text" id="A_materno" required> </label><br>
+        <label> ID_Puesto:<input type="number" id="ID_Puesto" required> </label><br>
+        <label> Fecha_Ingreso:<input type="date" id="Fecha_Ingreso" required> </label><br>
+        <label> Fecha_Baja:<input type="date" id="Fecha_Baja"> </label><br>
+        <label> Estatus:<input type="text" id="Estatus" required> </label><br>
+        <button type="submit">Guardar</button>
+      </form>
+      <h2>TABLA EMPLEADOS</h2>
+      <table border="1" width="75%">
+        <thead>
+          <tr>
+            <th>ID_Empleado</th>
+            <th>Clave_Empleado</th>
+            <th>Nombre</th>
+            <th>A_Paterno</th>
+            <th>A_Materno</th>
+            <th>ID_Puesto</th>
+            <th>Fecha_Ingreso</th>
+            <th>Fecha_Baja</th>
+            <th>Estatus</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tablaEmpleados"></tbody>
+      </table>
+    </div>
+
+    <!-- Formulario Puestos -->
+    <div id="puestosSection" style="display:none;">
+      <h2>REGISTRO DE PUESTOS</h2>
+      <form id="puestosForm">
+        <input type="hidden" id="ID_Puesto_P">
+        <label> Puesto:<input type="text" id="Puesto" required></label><br>
+        <button type="submit">Guardar</button>
+      </form>
+      <h2>TABLA PUESTOS</h2>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>ID_Puesto</th>
+            <th>Puesto</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tablaPuestos"></tbody>
+      </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
