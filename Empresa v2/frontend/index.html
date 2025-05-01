@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD EMPRESA</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome para íconos en botones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-content">
+      <div class="header-title">
+        <lord-icon
+          src="https://cdn.lordicon.com/gmchnlpj.json"
+          trigger="loop"
+          colors="primary:#30c9e8,secondary:#3a3347"
+          style="width:60px;height:60px;">
+        </lord-icon>
+        <h1>CRUD EMPRESA</h1>
+      </div>
+      <div class="header-actions">
+        <button id="theme-toggle" title="Cambiar Modo">🌙</button>
+      </div>
+    </div>
+  </header>
+  <div class="main-content">
+    <div style="width:100%;margin-bottom:1rem;"><br>
+      <label for="tablaSelect" style="font-weight:bold;">Selecciona una tabla: </label>
+      <select id="tablaSelect">
+        <option value="empleados">Empleados</option>
+        <option value="puestos">Puestos</option>
+      </select>
+    </div>
+    <div id="empleadosSection">
+      <h2>REGISTRO DE EMPLEADOS</h2>
+      <div class="empleados-flex">
+        <div class="form-rect">
+          <form id="empleadosForm">
+            <input type="hidden" id="ID_Empleado">
+            <label> Clave Empleado:<input type="number" id="Clave_Empleado" required></label>
+            <label> Nombre:<input type="text" id="Nombre" required> </label>
+            <label> A_Paterno:<input type="text" id="A_paterno" required> </label>
+            <label> A_Materno:<input type="text" id="A_materno" required> </label>
+            <label> ID_Puesto:<input type="number" id="ID_Puesto" required> </label>
+            <label> Fecha_Ingreso:<input type="date" id="Fecha_Ingreso" required> </label>
+            <label> Fecha_Baja:<input type="date" id="Fecha_Baja"> </label>
+            <label> Estatus:<input type="text" id="Estatus" required> </label>
+            <button type="submit"><i class="fas fa-save"></i> Guardar</button>
+          </form>
+        </div>
+        <div class="tabla-rect">
+          <h2>TABLA EMPLEADOS</h2>
+          <table id="tablaEmpleadosTable">
+            <thead>
+              <tr>
+                <th>ID_Empleado</th>
+                <th>Clave_Empleado</th>
+                <th>Nombre</th>
+                <th>A_Paterno</th>
+                <th>A_Materno</th>
+                <th>ID_Puesto</th>
+                <th>Fecha_Ingreso</th>
+                <th>Fecha_Baja</th>
+                <th>Estatus</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tablaEmpleados"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="puestosSection" style="display:none;">
+      <h2>REGISTRO DE PUESTOS</h2>
+      <div class="empleados-flex">
+        <div class="form-rect">
+          <form id="puestosForm">
+            <input type="hidden" id="ID_Puesto_P">
+            <label> Puesto:<input type="text" id="Puesto" required></label>
+            <button type="submit"><i class="fas fa-save"></i> Guardar</button>
+          </form>
+        </div>
+        <div class="tabla-rect" id="tablaPuestosRect">
+          <h2>TABLA PUESTOS</h2>
+          <table id="tablaPuestosTable">
+            <thead>
+              <tr>
+                <th>ID_Puesto</th>
+                <th>Puesto</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tablaPuestos"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    // Modo claro por defecto y toggle
+    document.body.classList.remove('dark-mode');
+    const themeToggle = document.getElementById('theme-toggle');
+    function setThemeIcon() {
+      themeToggle.innerHTML = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    }
+    setThemeIcon();
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      setThemeIcon();
+    });
+  </script>
+</body>
+</html>
