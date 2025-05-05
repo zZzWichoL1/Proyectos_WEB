@@ -100,18 +100,5 @@
     </div>
   </div>
   <script src="script.js"></script>
-  <script>
-    // Modo claro por defecto y toggle
-    document.body.classList.remove('dark-mode');
-    const themeToggle = document.getElementById('theme-toggle');
-    function setThemeIcon() {
-      themeToggle.innerHTML = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
-    }
-    setThemeIcon();
-    themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      setThemeIcon();
-    });
-  </script>
 </body>
 </html>
